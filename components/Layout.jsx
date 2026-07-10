@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#ebf4f5] via-[#b5c6e0] to-[#e8cbf5] p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-center">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#ebf4f5] via-[#b5c6e0] to-[#e8cbf5]">
       
       {/* Decorative Orbs for Mesh Background */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-400/40 blur-[120px] mix-blend-multiply pointer-events-none" />
@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-purple-400/40 blur-[120px] mix-blend-multiply pointer-events-none" />
 
       {/* Main Glassmorphism Container */}
-      <div className="relative w-full max-w-7xl flex flex-col min-h-[90vh] bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] rounded-[2.5rem] overflow-hidden z-10">
+      <div className="relative w-full flex flex-col min-h-screen bg-white/40 backdrop-blur-2xl z-10">
         
         {/* Header */}
         <header className="sticky top-0 z-40 w-full border-b border-white/40 bg-white/20 backdrop-blur-md">
