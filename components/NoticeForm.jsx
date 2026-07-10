@@ -118,7 +118,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
 
       <form
         onSubmit={handleSubmit}
-        className="bg-white border border-slate-200/60 rounded-3xl shadow-xl shadow-slate-200/40 p-8 sm:p-10 space-y-8 relative overflow-hidden"
+        className="bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2.5rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] p-8 sm:p-10 space-y-8 relative overflow-hidden"
       >
         {/* Subtle decorative accent */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500" />
@@ -131,7 +131,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
             value={formData.title}
             onChange={handleChange}
             placeholder="Enter a descriptive title..."
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+            className="w-full bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-500 outline-none focus:bg-white/80 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
           />
           {errors.title && <p className="text-red-500 text-sm font-medium mt-1 flex items-center"><svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>{errors.title}</p>}
         </div>
@@ -144,7 +144,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
             value={formData.body}
             onChange={handleChange}
             placeholder="What do people need to know?"
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-y min-h-[120px]"
+            className="w-full bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-500 outline-none focus:bg-white/80 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-y min-h-[120px]"
           />
           {errors.body && <p className="text-red-500 text-sm font-medium mt-1 flex items-center"><svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>{errors.body}</p>}
         </div>
@@ -157,7 +157,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className="w-full appearance-none bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                className="w-full appearance-none bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl px-4 py-3.5 text-slate-800 outline-none focus:bg-white/80 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
               >
                 <option value="Exam">Exam</option>
                 <option value="Event">Event</option>
@@ -176,7 +176,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
                 name="priority"
                 value={formData.priority}
                 onChange={handleChange}
-                className="w-full appearance-none bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                className="w-full appearance-none bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl px-4 py-3.5 text-slate-800 outline-none focus:bg-white/80 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
               >
                 <option value="Normal">Normal</option>
                 <option value="Urgent">Urgent</option>
@@ -196,7 +196,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
               name="publishDate"
               value={formData.publishDate}
               onChange={handleChange}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+              className="w-full bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl px-4 py-3.5 text-slate-800 outline-none focus:bg-white/80 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
             />
             {errors.publishDate && <p className="text-red-500 text-sm font-medium mt-1 flex items-center"><svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>{errors.publishDate}</p>}
           </div>
@@ -211,7 +211,7 @@ export default function NoticeForm({ mode = "create", initialData = null, notice
               value={formData.image}
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-400 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+              className="w-full bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl px-4 py-3.5 text-slate-800 placeholder-slate-500 outline-none focus:bg-white/80 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
             />
           </div>
         </div>
