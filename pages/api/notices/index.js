@@ -22,8 +22,7 @@ export default async function handler(req, res) {
         prisma.notice.findMany({
           where: whereClause,
           orderBy: [
-            { priority: "desc" },     // Urgent first
-            { publishDate: "desc" },  // latest first
+            { createdAt: "desc" },  // newest first
           ],
           skip,
           take: limitNumber,
