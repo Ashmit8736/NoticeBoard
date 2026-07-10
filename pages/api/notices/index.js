@@ -4,16 +4,45 @@ import { validateNotice } from "../../../lib/validations";
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      const notices = await prisma.notice.findMany({
-        orderBy: [
-          { priority: "desc" },     // Urgent first
-          { publishDate: "desc" },  // latest first
-        ],
-      });
+      const { search, page = 1, limit = 6 } = req.query;
+      const pageNumber = parseInt(page, 10);
+      const limitNumber = parseInt(limit, 10);
+      const skip = (pageNumber - 1) * limitNumber;
+
+      const whereClause = search
+        ? {
+            OR: [
+              { title: { contains: search } },
+              { body: { contains: search } },
+            ],
+          }
+        : {};
+
+      const [notices, totalCount] = await Promise.all([
+        prisma.notice.findMany({
+          where: whereClause,
+          orderBy: [
+            { priority: "desc" },     // Urgent first
+            { publishDate: "desc" },  // latest first
+          ],
+          skip,
+          take: limitNumber,
+        }),
+        prisma.notice.count({ where: whereClause }),
+      ]);
+
+      const totalPages = Math.ceil(totalCount / limitNumber);
 
       return res.status(200).json({
         success: true,
         notices,
+        pagination: {
+          totalCount,
+          totalPages,
+          currentPage: pageNumber,
+          limit: limitNumber,
+          hasMore: pageNumber < totalPages,
+        }
       });
     } catch (error) {
       console.error("GET notices error:", error);

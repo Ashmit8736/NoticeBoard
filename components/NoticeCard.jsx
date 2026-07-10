@@ -98,6 +98,7 @@ export default function NoticeCard({ notice, refreshNotices }) {
               <img
                 src={notice.image}
                 alt={notice.title}
+                loading="lazy"
                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
               />
             </div>
